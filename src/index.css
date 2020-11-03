@@ -1,0 +1,297 @@
+/*
+=============== 
+Variables
+===============
+*/
+
+/*** GOOGLE FONT***/
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lobster+Two:ital@1&family=Satisfy&display=swap');
+
+:root {
+    --clr-primary-1: hsl(205, 86%, 17%);
+    --clr-primary-2: hsl(205, 77%, 27%);
+    --clr-primary-3: hsl(205, 63%, 48%);
+
+    --clr-grey-1: hsl(209, 61%, 16%);
+    --clr-grey-2:hsl(209, 34%, 30%);
+    --clr-grey-3:hsl(212, 33%, 89%);
+
+    --clr-section-bg: linear-gradient(
+        90deg,
+        rgba(48, 16, 255, 1) 0%,
+        rgba(100, 115, 255, 1) 100%
+    );
+
+    --clr-white: #fff;
+    --clr-black: #222;
+
+    --transition: all 0.3s linear;
+    --radius: 0.25rem;
+    --spacing: 0.1rem;
+
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    --clr-red-dark: hsl(0, 67%, 44%);
+    --clr-red-light:hsl(359, 71%, 54%);
+    
+
+    --clr-edit-btn: linear-gradient(
+        90deg,
+        rgba(20, 159, 255, 1) 0%,
+        rgba(17, 122, 255, 1) 100%
+    );
+
+
+    --clr-edit-hover: hsl(125, 70%, 52%);
+
+    --clr-head-font: 'Lobster Two', cursive;
+    --clr-body-font: 'Courgette', cursive;
+    --clr-btn-font: 'Satisfy', cursive;
+    
+}
+
+.complete {
+    text-decoration: line-through;
+    opacity: 0.4;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    /*  */
+    font-family: var(--clr-body-font);
+    background: #161a2b;
+    color: var(--clr-grey-1);
+    line-height: 1;
+    font-size: 0.875rem;
+}
+h1 {
+    text-transform: capitalize;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    color: var(--clr-white);
+    font-size: 1.25rem;
+    font-family: var(--clr-head-font);
+}
+p {
+    margin-bottom: 1.25rem;
+    color: var(--clr-grey-2);
+}
+@media screen and (min-width: 800px) {
+    h1 {
+        font-size: 1.75rem;
+        line-height: 1;
+    }
+}
+
+/* section */
+.section-center {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 35rem;
+    margin-top: 3rem;
+}
+@media screen and (min-width: 992px) {
+    .section-center {
+        width: 95vw;
+    }
+}
+
+/*
+=============== 
+Grocery List
+===============
+*/
+.section-center {
+    background: var(--clr-section-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--light-shadow);
+    transition: var(--transition);
+    padding: 2rem;
+}
+.section-center:hover {
+    box-shadow: var(--dark-shadow);
+}
+.alert {
+    margin-bottom: 1rem;
+    height: 1.25rem;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    font-size: 0.7rem;
+    border-radius: 0.25rem;
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+}
+.alert-danger {
+    color: #721c24;
+    background: #f8d7da;
+}
+.alert-success {
+    color: #155724;
+    background: #d4edda;
+}
+.todo-form h1 {
+    color: var(--clr-white);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.form-control {
+    display: flex;
+    justify-content: center;
+}
+.todo-input {
+    padding: 12px 10px;
+    /* padding-left: 1rem; */
+    background: var(--clr-grey-3);
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+    border: none;
+    outline: none;
+    border-color: transparent;
+    font-size: 1rem;
+    flex: 1 0 auto;
+    color: var(--clr-grey-2);
+}
+.todo-input::placeholder {
+    /* font-family: var(--ff-secondary); */
+    color: var(--clr-grey-2);
+}
+button {
+    font-family: var(--clr-btn-font);
+}
+.submit-btn {
+    background: var(--clr-primary-2);
+    color: var(--clr-white);
+    border-color: transparent;
+    /* flex: 0 0 5rem;
+    display: grid; */
+    align-items: center;
+    padding: 0px 12px;
+
+    text-transform: capitalize;
+    border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    cursor: pointer;
+    content: var(--clr-primary-3);
+    transition: var(--transition);
+    font-size: 1rem;
+    outline: none;
+}
+.submit-btn:hover {
+    background: var(--clr-primary-3);
+}
+
+.todo-container {
+    margin-top: 2rem;
+}
+
+.todo-item {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 118, 20, 1) 0%,
+        rgba(255, 84, 17, 1) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    text-transform: capitalize;
+}
+.todo-item:nth-child(4n + 1) {
+    background: linear-gradient(
+        90deg,
+        rgba(93, 12, 255, 1) 0%,
+        rgba(155, 0, 250, 1) 100%
+    );
+}
+.todo-item:nth-child(4n + 2) {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 12, 241, 1) 0%,
+        rgba(250, 0, 135, 1) 100%
+    );
+}
+.todo-item:nth-child(4n + 3) {
+    background: linear-gradient(
+        90deg,
+        rgba(20, 159, 255, 1) 0%,
+        rgba(17, 122, 255, 1) 100%
+    );
+}
+/* .todo-item:hover {
+    color: var(--clr-grey-2);
+    background: var(--clr-grey-3);
+} */
+/* .todo-item:hover .title {
+    color: var(--clr-grey-2);
+} */
+.title {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: var(--clr-grey-1);
+    letter-spacing: 2px;
+    transition: var(--transition);
+}
+.edit-btn,
+.delete-btn {
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 0.1rem;
+    transition: var(--transition);
+    outline: none;
+}
+.edit-btn {
+    color: var(--clr-edit-btn);
+    /* padding: 5px 2px; */
+}
+.edit-btn:hover {
+    color: var(--clr-edit-hover);
+}
+.delete-btn {
+    color: var(--clr-red-light);
+}
+.delete-btn:hover {
+    color: var(--clr-red-dark);
+} 
+.clear-btn {
+    text-transform: capitalize;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    background: var(--clr-red-light);
+    color: var(--clr-grey-3);
+    border-color: transparent;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin: 0 auto;
+    /* font-size: 0.85rem; */
+    /* letter-spacing: var(--spacing); */
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1.5rem;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.clear-btn:hover {
+    color: var(--clr-red-dark);
+    background: var(--clr-grey-3);
+}
